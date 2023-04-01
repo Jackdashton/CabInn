@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get "/home", to: "pages#home"
 
   get "/flats", to: "flats#index"
-  get "/flats/:id", to: "flats#show"
   get "/flats/new", to: "flats#new"
+  get "/flats/:id", to: "flats#show"
+  post "flats", to: "flats#create"
+
 end
