@@ -1,0 +1,16 @@
+<div class="container">
+  <h2><%= @flat.name %></h2>
+  <p>Address: <%= @flat.address %></p>
+  <p>Description: <%= @flat.description  %></p>
+  <p>Number of Guests: <%= @flat.guest_num  %></p>
+  <p>Price per night: €<%= @flat.price_per_night  %></p>
+  <%# <p>Rating: <%= @flat.rating %>
+
+  <p>Book the property</p>
+  <p>Add a review for the property</p>
+
+  <%= link_to "Delete",
+    flat_path(@flat),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+</div>
