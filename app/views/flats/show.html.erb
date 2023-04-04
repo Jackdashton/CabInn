@@ -15,4 +15,14 @@
     flat_path(@flat),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
   %>
+
+  <div>
+    <% @flat.reviews.each do |review| %>
+      <p>Content: <%= review.content %></p>
+      <p>Location: <%= review.location %></p>
+      <p>Cleanliness: <%= review.cleanliness %></p>
+      <p>Value: <%= review.value %></p>
+    <% end %>
+  </div>
+
 </div>
