@@ -16,12 +16,15 @@
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
   %>
 
+  <h2>Reviews</h2>
   <div>
     <% @flat.reviews.each do |review| %>
       <p>Content: <%= review.content %></p>
       <p>Location: <%= review.location %></p>
       <p>Cleanliness: <%= review.cleanliness %></p>
       <p>Value: <%= review.value %></p>
+      <% overall = (review.value + review.location + review.cleanliness)/3.to_f %>
+      <p>Overall: <%= (overall* 2.0).round / 2.0 %></p>
     <% end %>
   </div>
 
