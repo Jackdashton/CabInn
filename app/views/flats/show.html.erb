@@ -16,9 +16,8 @@
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
   %>
 
-  <% @article.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
+<%= cl_image_tag("vi7lp3d3igkmi0zyczq6",
+      width: 400, height: 300, crop: :fill) %>
 
   <%= link_to "Add a new review", new_flat_review_path(@flat) %>
 
