@@ -1,10 +1,15 @@
 <div class="container">
-  <h2><%= @flat.name %></h2>
-  <p>Address: <%= @flat.address %></p>
-  <p>Description: <%= @flat.description  %></p>
-  <p>Number of Guests: <%= @flat.guest_num  %></p>
-  <p>Price per night: €<%= @flat.price_per_night  %></p>
-  <%# <p>Rating: <%= @flat.rating %>
+  <div>
+    <%= cl_image_tag @flat.photo.key, height: 300, width: 400, crop: :fill %>
+  </div>
+  <div>
+    <h2><%= @flat.name %></h2>
+    <p>Address: <%= @flat.address %></p>
+    <p>Description: <%= @flat.description  %></p>
+    <p>Number of Guests: <%= @flat.guest_num  %></p>
+    <p>Price per night: €<%= @flat.price_per_night  %></p>
+    <%# <p>Rating: <%= @flat.rating %>
+  </div>
 
   <p>Book the property</p>
   <p>Add a review for the property</p>
@@ -15,9 +20,6 @@
     flat_path(@flat),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
   %>
-
-<%= cl_image_tag("vi7lp3d3igkmi0zyczq6",
-      width: 400, height: 300, crop: :fill) %>
 
   <%= link_to "Add a new review", new_flat_review_path(@flat) %>
 
