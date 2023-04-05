@@ -45,7 +45,7 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:name, :address, :description, :guest_num, :price_per_night)
+    params.require(:flat).permit(:name, :address, :description, :guest_num, :price_per_night, photos: [])
+    # Need photos (plural) as an empty array to allow multiple photo uploads.
   end
-
 end
