@@ -1,7 +1,10 @@
 <div class="container">
   <div>
-    <%= cl_image_tag @flat.photo.key, height: 300, width: 400, crop: :fill %>
+    <% @flat.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
   </div>
+
   <div>
     <h2><%= @flat.name %></h2>
     <p>Address: <%= @flat.address %></p>

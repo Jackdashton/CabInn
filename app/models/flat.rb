@@ -3,7 +3,7 @@ class Flat < ApplicationRecord
   has_many :bookings, dependent: :destroy
   belongs_to :user
 
-  has_one_attached :photo
+  has_many_attached :photos
 
   validates :name, :address, :description, :guest_num, :price_per_night, presence: true
   validates :guest_num, inclusion: { in: 1..30 }
