@@ -8,7 +8,7 @@
     <%= f.input :guest_num %>
     <%= f.input :price_per_night %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.submit %>
+    <%= f.submit "Request booking", class: "btn btn-primary" %>
   <% end %>
 
 </div>

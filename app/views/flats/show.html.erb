@@ -14,17 +14,16 @@
     <%# <p>Rating: <%= @flat.rating %>
   </div>
 
-  <p>Book the property</p>
-  <p>Add a review for the property</p>
+  <%= link_to "Book the property", new_flat_booking_path(@flat), class: "btn btn-primary" %>
 
-  <%= link_to "Back to flats", flats_path %>
+  <%= link_to "Back to flats", flats_path, class: "btn btn-primary" %>
 
   <%= link_to "Delete",
-    flat_path(@flat),
+    flat_path(@flat), class: "btn btn-danger",
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
   %>
 
-  <%= link_to "Add a new review", new_flat_review_path(@flat) %>
+  <%= link_to "Add a new review", new_flat_review_path(@flat), class: "btn btn-primary" %>
 
   <h2>Reviews</h2>
   <div>

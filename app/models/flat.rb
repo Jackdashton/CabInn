@@ -5,7 +5,7 @@ class Flat < ApplicationRecord
 
   has_many_attached :photos
 
-  validates :name, :address, :description, :guest_num, :price_per_night, presence: true
+  validates :name, :address, :description, :guest_num, :price_per_night, :photos, presence: true
   validates :guest_num, inclusion: { in: 1..30 }
   validates :price_per_night, inclusion: { in: 1..20_000 }
   validates :description, length: { maximum: 500 }
