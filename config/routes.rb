@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :flats do
     resources :reviews, only: %i[new create]
+    resources :bookings, only: %i[new create]
   end
 
 #   get "/flats", to: "flats#index"
