@@ -1,5 +1,7 @@
 <h1>Welcome to CabInn</h1>
 <% if user_signed_in? %>
   <h3>Hi <%= current_user.username.capitalize %></h3>
+  <%= current_user.avatar_thumbnail %>
+
 <% else %>
 <% end %>

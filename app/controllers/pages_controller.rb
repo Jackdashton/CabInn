@@ -3,6 +3,10 @@ class PagesController < ApplicationController
   def home
   end
 
+  def account
+    @user = current_user
+  end
+
   def bookings
     @bookings = Booking.all
     @user = current_user

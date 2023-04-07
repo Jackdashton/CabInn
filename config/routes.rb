@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   get "/bookings", to: "pages#bookings"
+  get "/account", to: "pages#account"
 
   resources :flats do
     resources :reviews, only: %i[new create]
