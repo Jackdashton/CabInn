@@ -18,4 +18,5 @@ class PagesController < ApplicationController
     @reserved_bookings = @user.bookings.where(status: true)
     @flats = @user.flats
   end
+
 end

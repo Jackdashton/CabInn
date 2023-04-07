@@ -8,11 +8,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # method required for home view page
   def avatar_thumbnail
     if avatar.attached?
-      avatar.variant(resize: "150x150!").processed
+      avatar
     else
-      "/logo.png"
+      image_tag("/logo.png")
     end
   end
 end
