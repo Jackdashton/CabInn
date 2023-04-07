@@ -1,6 +1,5 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Welcome to CabInn</h1>
 <% if user_signed_in? %>
-  <h2>Hi <%= current_user.email %></h2>
+  <h3>Hi <%= current_user.username.capitalize %></h3>
 <% else %>
 <% end %>
