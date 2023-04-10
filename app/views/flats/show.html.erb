@@ -1,0 +1,45 @@
+<div class="container">
+  <div>
+    <% @flat.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  </div>
+
+  <div>
+    <h2><%= @flat.name %></h2>
+    <p>Address: <%= @flat.address %></p>
+    <p>Description: <%= @flat.description  %></p>
+    <p>Number of Guests: <%= @flat.guest_num  %></p>
+    <p>Price per night: €<%= @flat.price_per_night  %></p>
+    <%# <p>Rating: <%= @flat.rating %>
+  </div>
+
+  <%= link_to "Book the property", new_flat_booking_path(@flat), class: "btn btn-primary" %>
+
+  <%= link_to "Back to flats", flats_path, class: "btn btn-primary" %>
+
+  <%= link_to "Delete",
+    flat_path(@flat), class: "btn btn-danger",
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+
+  <%= link_to "Add a new review", new_flat_review_path(@flat), class: "btn btn-primary" %>
+
+  <h2>Reviews</h2>
+  <div>
+    <% @flat.reviews.each do |review| %>
+      <p>Content: <%= review.content %></p>
+      <p>Location: <%= review.location %></p>
+      <p>Cleanliness: <%= review.cleanliness %></p>
+      <p>Value: <%= review.value %></p>
+      <% overall = (review.value + review.location + review.cleanliness)/3.to_f %>
+      <p>Overall: <%= (overall* 2.0).round / 2.0 %></p>
+    <% end %>
+  </div>
+
+  <h2>Reviews</h2>
+  <div>
+    
+  </div>
+
+</div>

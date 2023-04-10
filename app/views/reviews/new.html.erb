@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>What did you think of the flat?</h1>
+
+  <%= simple_form_for [@flat, @review] do |f| %>
+  <%# Must pass instance of flat to simple form too %>
+    <%= f.input :content %>
+    <h4>Please rate the following (1 = worst; 5 = best)</h4>
+    <%= f.input :location, :collection => 1..5 %>
+    <%= f.input :cleanliness, :collection => 1..5 %>
+    <%= f.input :value, :collection => 1..5 %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <% end %>
+
+</div>
+
+<%# Simple Form, like form_with, needs the 2 objects to build the right request:
+Helper	HTTP request
+`simple_form_for @review`	                  POST `reviews_path`
+`simple_form_for [@flat, @review]`	  POST `flat_reviews_path` %>
+
+    <%# t.text "content"
+    t.integer "location"
+    t.integer "cleanliness"
+    t.integer "value" %>
