@@ -2,7 +2,7 @@
 <% if user_signed_in? %>
   <h3>Hi <%= current_user.username.capitalize %></h3>
   <%# if called ".avatar_thumbnail" it must be a class method, i.e. in the User model %>
-  <%= image_tag(current_user.avatar_thumbnail) %>
+  <%# <%= image_tag(current_user.avatar_thumbnail) %> %>
 
 <% else %>
 <% end %>
