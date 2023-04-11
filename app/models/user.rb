@@ -13,7 +13,7 @@ class User < ApplicationRecord
     if avatar.attached?
       avatar
     else
-      image_tag("/logo.png")
+      link_to "http://www.google.com/"
     end
   end
 end
