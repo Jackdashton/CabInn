@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create]
   end
 
+  resources :reviews, only: [:destroy]
+
 #   get "/flats", to: "flats#index"
 #   get "/flats/new", to: "flats#new"
 #   post "/flats", to: "flats#create"

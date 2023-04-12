@@ -48,6 +48,10 @@ gem "bootsnap", require: false
 # Use Sass to process CSS
 gem "sassc-rails"
 
+# Authorisation
+gem "pundit"
+
+# Seed file
 gem 'faker', '~> 3.1', '>= 3.1.1'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]

@@ -14,16 +14,32 @@
     <%# <p>Rating: <%= @flat.rating %>
   </div>
 
-  <%= link_to "Book the property", new_flat_booking_path(@flat), class: "btn btn-primary" %>
+  <%# if user is owner, hide book this property %>
+  <% if policy(@flat).edit? %>
+  <% else %>
+    <%= link_to "Book the property", new_flat_booking_path(@flat), class: "btn btn-primary" %>
+  <% end %>
 
   <%= link_to "Back to flats", flats_path, class: "btn btn-primary" %>
 
-  <%= link_to "Delete",
-    flat_path(@flat), class: "btn btn-danger",
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
+  <% if policy(@flat).destroy? %>
+    <%= link_to "Delete",
+      flat_path(@flat), class: "btn btn-danger",
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+    %>
+  <% else %>
+  <% end %>
 
-  <%= link_to "Add a new review", new_flat_review_path(@flat), class: "btn btn-primary" %>
+  <% if policy(@flat).edit? %>
+    <%= link_to "Edit this property", edit_flat_path, class: "btn btn-primary" %>
+  <% else %>
+  <% end %>
+
+  <%# Cannot leave a review for your own property %>
+  <% if policy(@flat).edit? %>
+  <% else %>
+    <%= link_to "Add a new review", new_flat_review_path(@flat), class: "btn btn-primary" %>
+  <% end %>
 
   <h2>Reviews</h2>
   <div>
@@ -34,12 +50,14 @@
       <p>Value: <%= review.value %></p>
       <% overall = (review.value + review.location + review.cleanliness)/3.to_f %>
       <p>Overall: <%= (overall* 2.0).round / 2.0 %></p>
-    <% end %>
+
+      <%# <%= link_to "Delete", # "delete" for delete action %>
+      <%# review_path(review), # give review we want to delete %>
+      <%# data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      <%# # must say turbo method otherwise it will be show page of a review and not the delete method %>
+      <%# %> 
+  <% end %>
   </div>
 
-  <h2>Reviews</h2>
-  <div>
-    
-  </div>
 
 </div>

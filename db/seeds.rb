@@ -11,26 +11,23 @@ require 'faker'
 puts "cleaning DB"
 Flat.destroy_all
 
-puts 'Creating 30 properties...'
-30.times do
+puts 'Creating 2 properties...'
+20.times do
   flat = Flat.new(
-    name:    "#{Faker::Books::TheKingkillerChronicle.location}, Cabin",
+    name:    "#{Faker::Books::TheKingkillerChronicle.location} Cabin",
     address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
     description: "A #{Faker::Adjective.positive} Cabin with #{Faker::Adjective.positive} views of #{Faker::Fantasy::Tolkien.location}",
     guest_num:  rand(2..12),
     price_per_night:  rand(25-300),
     user: User.last
   )
-  file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
-  flat.photos.attach(io: file, filename: 'flat.png', content_type: 'image/png')
+  # must be photos not photo as it is has_many: photos, even if uploading 1.
+  file = URI.open("https://upload.wikimedia.org/wikipedia/commons/7/7d/Cabins_with_Loft.jpg")
+  flat.photos.attach(io: file, filename: 'Cabins_with_Loft.jpg', content_type: 'image/jpg')
+  # file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+  # flat.photos.attach(io: file, filename: 'flat.png', content_type: 'image/png')
+  # file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+  # flat.photos.attach(io: file, filename: 'flat.png', content_type: 'image/png')
   flat.save!
 end
 puts 'Finished!'
-
-# t.string "name"
-# t.string "address"
-# t.text "description"
-# t.integer "guest_num"
-# t.integer "price_per_night"
-# t.float "latitude"
-# t.float "longitude"
