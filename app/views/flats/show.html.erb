@@ -50,7 +50,13 @@
       <p>Value: <%= review.value %></p>
       <% overall = (review.value + review.location + review.cleanliness)/3.to_f %>
       <p>Overall: <%= (overall* 2.0).round / 2.0 %></p>
-    <% end %>
+
+      <%# <%= link_to "Delete", # "delete" for delete action %>
+      <%# review_path(review), # give review we want to delete %>
+      <%# data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      <%# # must say turbo method otherwise it will be show page of a review and not the delete method %>
+      <%# %> 
+  <% end %>
   </div>
 
 
