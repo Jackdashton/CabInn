@@ -11,16 +11,16 @@ require 'faker'
 puts "cleaning DB"
 Flat.destroy_all
 
-puts 'Creating 2 properties...'
+puts 'Creating 20 properties...'
 20.times do
   flat = Flat.new(
-    name:    "#{Faker::Books::TheKingkillerChronicle.location} Cabin",
+    name: "#{Faker::Books::TheKingkillerChronicle.location} Cabin",
     address: Faker::Address.full_address,
     description: "A #{Faker::Adjective.positive} Cabin with #{Faker::Adjective.positive} views of #{Faker::Fantasy::Tolkien.location}",
-    guest_num:  rand(2..12),
-    price_per_night:  rand(25-300),
+    guest_num: rand(2..12),
+    price_per_night: rand(25-300),
     user: User.last
-  )
+    )
   # must be photos not photo as it is has_many: photos, even if uploading 1.
   file = URI.open("https://upload.wikimedia.org/wikipedia/commons/7/7d/Cabins_with_Loft.jpg")
   flat.photos.attach(io: file, filename: 'Cabins_with_Loft.jpg', content_type: 'image/jpg')
