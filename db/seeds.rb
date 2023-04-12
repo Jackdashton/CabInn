@@ -15,7 +15,7 @@ puts 'Creating 2 properties...'
 20.times do
   flat = Flat.new(
     name:    "#{Faker::Books::TheKingkillerChronicle.location} Cabin",
-    address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+    address: Faker::Address.full_address,
     description: "A #{Faker::Adjective.positive} Cabin with #{Faker::Adjective.positive} views of #{Faker::Fantasy::Tolkien.location}",
     guest_num:  rand(2..12),
     price_per_night:  rand(25-300),
