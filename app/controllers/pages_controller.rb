@@ -8,7 +8,11 @@ class PagesController < ApplicationController
   end
 
   def my_flats
-
+    @user = current_user
+    @flats = Flat.all
+    @my_flats = @flats.select do |flat|
+      flat.user == @user
+    end
   end
 
   def bookings
