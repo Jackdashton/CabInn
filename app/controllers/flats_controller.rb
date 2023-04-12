@@ -1,8 +1,8 @@
 class FlatsController < ApplicationController
 
   def index
-    @flats = Flat.all
-    authorize(@flats)
+    @flats = policy_scope(Flat).all
+    # Limits flats we can see to those inside method: Resolve in flat_policy
   end
 
   def show
@@ -46,6 +46,7 @@ class FlatsController < ApplicationController
 
   def destroy
     @flat = Flat.find(params[:id])
+    authorize(@flat) # This must be before the .destroy!!
     @flat.destroy
     redirect_to flats_path, status: :see_other
   end

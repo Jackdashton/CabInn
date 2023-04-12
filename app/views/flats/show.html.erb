@@ -14,18 +14,32 @@
     <%# <p>Rating: <%= @flat.rating %>
   </div>
 
-  <%= link_to "Book the property", new_flat_booking_path(@flat), class: "btn btn-primary" %>
+  <%# if user is owner, hide book this property %>
+  <% if policy(@flat).edit? %>
+  <% else %>
+    <%= link_to "Book the property", new_flat_booking_path(@flat), class: "btn btn-primary" %>
+  <% end %>
 
   <%= link_to "Back to flats", flats_path, class: "btn btn-primary" %>
 
-  <%= link_to "Delete",
-    flat_path(@flat), class: "btn btn-danger",
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
+  <% if policy(@flat).destroy? %>
+    <%= link_to "Delete",
+      flat_path(@flat), class: "btn btn-danger",
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+    %>
+  <% else %>
+  <% end %>
 
-<%= link_to "Edit this property", edit_flat_path, class: "btn btn-primary" %>
+  <% if policy(@flat).edit? %>
+    <%= link_to "Edit this property", edit_flat_path, class: "btn btn-primary" %>
+  <% else %>
+  <% end %>
 
-  <%= link_to "Add a new review", new_flat_review_path(@flat), class: "btn btn-primary" %>
+  <%# Cannot leave a review for your own property %>
+  <% if policy(@flat).edit? %>
+  <% else %>
+    <%= link_to "Add a new review", new_flat_review_path(@flat), class: "btn btn-primary" %>
+  <% end %>
 
   <h2>Reviews</h2>
   <div>
