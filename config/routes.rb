@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "/bookings", to: "pages#bookings"
   get "/account", to: "pages#account"
+  get "/my_flats", to: "pages#my_flats"
 
   resources :flats do
     resources :reviews, only: %i[new create]

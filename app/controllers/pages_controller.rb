@@ -7,6 +7,10 @@ class PagesController < ApplicationController
     @user = current_user
   end
 
+  def my_flats
+
+  end
+
   def bookings
     @bookings = Booking.all
     @user = current_user
