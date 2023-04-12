@@ -4,10 +4,14 @@ class ApplicationPolicy
   attr_reader :user, :record
 
   def initialize(user, record)
+    # user = current_user in devise, record = instance of whatever we're checking - the individual flat
     @user = user
     @record = record
   end
 
+  # Rails resources
+  # true - anyone can view
+  # false - no one can view
   def index?
     false
   end

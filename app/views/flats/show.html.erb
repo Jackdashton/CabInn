@@ -23,6 +23,8 @@
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
   %>
 
+<%= link_to "Edit this property", edit_flat_path, class: "btn btn-primary" %>
+
   <%= link_to "Add a new review", new_flat_review_path(@flat), class: "btn btn-primary" %>
 
   <h2>Reviews</h2>
