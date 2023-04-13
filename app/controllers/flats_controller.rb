@@ -8,6 +8,7 @@ class FlatsController < ApplicationController
   def show
     @flat = Flat.find(params[:id])
     authorize(@flat) # must find flat first
+    @markers = [{ lat: @flat.latitude, lng: @flat.longitude }]
   end
 
   def new

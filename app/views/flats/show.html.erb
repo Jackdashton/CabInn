@@ -41,6 +41,14 @@
     <%= link_to "Add a new review", new_flat_review_path(@flat), class: "btn btn-primary" %>
   <% end %>
 
+<h2>Location</h2>
+<div style="width: 100%; height: 300px;"
+  data-controller="map"
+  <%# Must link controller to js file with stimulus %>
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <%# Line above keeps API key private %>
+
   <h2>Reviews</h2>
   <div>
     <% @flat.reviews.each do |review| %>
