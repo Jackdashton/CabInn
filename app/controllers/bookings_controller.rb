@@ -5,10 +5,11 @@ class BookingsController < ApplicationController
   # We need to create a booking and render a form(new)
   # We need to update the status - accepted or not (true/false)
   # We need to be able to delete a booking.
-  # new create and update need to have a flat id, delete does not. 
+  # new create and update need to have a flat id, delete does not.
 
   def new
     @booking = Booking.new
+    authorize(@booking)
   end
 
   def create
@@ -16,6 +17,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @booking.flat = @flat
     @booking.user = current_user
+    authorize(@booking)
     # Booking status false when initialised.
     @booking.status = false
     # if the booking can be saved with validations, then redirect otherwise re-render form.
