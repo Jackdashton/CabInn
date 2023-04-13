@@ -51,6 +51,8 @@ gem "sassc-rails"
 # Authorisation
 gem "pundit"
 
+gem 'geocoder'
+
 # Seed file
 gem 'faker', '~> 3.1', '>= 3.1.1'
 
