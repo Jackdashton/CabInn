@@ -3,5 +3,5 @@
 <p>Username: <%= @user.username %></p>
 <p>Email Address: <%= @user.email %></p>
 
-<p>Change your Avatar</p>
-
+<p>Edit your account</p>
+<%= link_to "Edit your account", edit_user_registration_path(@user), class: "btn btn-primary" %>
