@@ -53,6 +53,8 @@ gem "pundit"
 
 gem 'geocoder'
 
+gem "ImageResize", "~> 0.0.5"
+
 # Seed file
 gem 'faker', '~> 3.1', '>= 3.1.1'
 
