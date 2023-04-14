@@ -4,13 +4,13 @@
   <%= f.error_notification %>
 
 
-  <%# <div class="field">
+  <div class="field">
     <%= image_tag(resource.avatar_thumbnail) if resource.avatar.attached? %>
-  <%# </div> %>
+  </div>
 
-  <%# <div class="field"> %>
-    <%# <%= f.file_field :avatar %>
-  <%# </div> %>
+  <div class="field">
+    <%= f.file_field :avatar %>
+  </div>
 
   <div class="form-inputs">
     <%= f.input :email, required: true, autofocus: true %>

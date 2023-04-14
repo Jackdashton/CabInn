@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+
   skip_before_action :authenticate_user!, only: :home
   def home
   end
@@ -13,6 +14,10 @@ class PagesController < ApplicationController
     @my_flats = @flats.select do |flat|
       flat.user == @user
     end
+  end
+
+  def avatar
+    @avatar = resource.avatar
   end
 
   def bookings
