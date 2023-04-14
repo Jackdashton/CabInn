@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
 
   def create
     # For instannce of booking, we need an instance of user and flat.
-    @booking = Booking.new
+    @booking = Booking.new(booking_params)
     @booking.flat = @flat
     @booking.user = current_user
     authorize(@booking)
@@ -42,7 +42,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:flat_id)
+    params.require(:booking).permit(:flat_id, :arrival, :departure)
   end
 
   def set_flat
