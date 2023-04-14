@@ -5,11 +5,8 @@ import flatpickr from "flatpickr";
 export default class extends Controller {
   connect() {
     new flatpickr(this.element, {
-      enableTime: false,
+      enableTime: true,
       minDate: "today",
-      altInput: true,
-      altFormat: "F j, Y",
-      dateFormat: "Y-m-d",
       // More options available in documentation
     });
   }

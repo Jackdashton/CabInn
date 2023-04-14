@@ -1,3 +1,11 @@
-<%= simple_form_for [@flat, @booking] do |f| %>
-<%= f.submit "Request booking", class: "btn btn-primary" %>
+<h1>Booking</h1>
+
+<h3>What dates would you like to stay?</h3>
+
+<%= simple_form_for @booking do |f| %>
+    <%= f.input :arrival, as: :date,
+    input_html: { data: { controller: "flatpickr" } } %>
+    <%= f.input :departure, as: :date,
+    input_html: { data: { controller: "flatpickr" } } %>
+    <%= f.button :submit %>
 <% end %>
