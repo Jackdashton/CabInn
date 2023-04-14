@@ -15,6 +15,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def avatar
+    @avatar = resource.avatar
+  end
+
   def bookings
     @bookings = Booking.all
     @user = current_user

@@ -11,7 +11,7 @@ class User < ApplicationRecord
   # method required for home view page
   def avatar_thumbnail
     if avatar.attached?
-      avatar
+      avatar # Add later => .variant(resize: "150x150!").processed
     else
       link_to "http://www.google.com/"
     end

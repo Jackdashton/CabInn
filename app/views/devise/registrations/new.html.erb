@@ -6,9 +6,9 @@
 
       <div class="form-group">
         <% if resource.avatar.attached? %>
-          <%= image_tag(user.avatar) %>
+          <%= image_tag(resource.avatar) %>
         <% else %>
-          <%= image_tag("/logo.png" ) %>
+          <%= image_tag("/app/assets/images/logo.png") %>
         <% end %>
       </div>
 
