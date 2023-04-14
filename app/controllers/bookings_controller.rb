@@ -9,14 +9,15 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    authorize @booking
+    authorize(@booking)
   end
 
   def create
     # For instannce of booking, we need an instance of user and flat.
-    @booking = Booking.new
+    @booking = Booking.new(booking_params)
     @booking.flat = @flat
     @booking.user = current_user
+    authorize(@booking)
     # Booking status false when initialised.
     @booking.status = false
     # if the booking can be saved with validations, then redirect otherwise re-render form.
@@ -41,7 +42,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:flat_id)
+    params.require(:booking).permit(:flat_id, :arrival, :departure)
   end
 
   def set_flat
