@@ -7,8 +7,16 @@
       wrapper_html: { class: "mb-4" },
       label_html: { class: "form-label" },
       input_html: { data: { controller: "flatpickr" } } %>
+    <%= f.input :departure, as: :date,
+      wrapper_html: { class: "mb-4" },
+      label_html: { class: "form-label" },
+      input_html: { data: { controller: "flatpickr" } } %>
   <%= f.submit "Request booking", class: "btn btn-primary"%>
 <% end %>
 
-<%# #####     ^^^^^^^^^^^^^              ########## %>
-<%# Saves the instance of booking but not the dates %>
+
+<h3> Price </h3>
+
+<%# (end_date - start_date).to_i
+<% @total_days = (departure-arrival).to_i %>
+<%# <%= @total_days %>

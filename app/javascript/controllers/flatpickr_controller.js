@@ -10,6 +10,7 @@ export default class extends Controller {
       altInput: true,
       altFormat: "F j, Y",
       dateFormat: "Y-m-d",
+      inline: true
       // More options available in documentation
     });
   }
