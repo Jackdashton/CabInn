@@ -9,6 +9,8 @@ class FlatsController < ApplicationController
     @flat = Flat.find(params[:id])
     authorize(@flat) # must find flat first
     @markers = [{ lat: @flat.latitude, lng: @flat.longitude }]
+    raise
+    @calc_nights
   end
 
   def new
@@ -51,6 +53,11 @@ class FlatsController < ApplicationController
     @flat.destroy
     redirect_to flats_path, status: :see_other
   end
+
+  # def calc_nights
+  #   raise
+  #   @nights = (@booking.arrival-@booking.departure).to_i
+  # end
 
 
   private
