@@ -9,8 +9,7 @@ class FlatsController < ApplicationController
     @flat = Flat.find(params[:id])
     authorize(@flat) # must find flat first
     @markers = [{ lat: @flat.latitude, lng: @flat.longitude }]
-    raise
-    @calc_nights
+    # @calc_nights
   end
 
   def new
