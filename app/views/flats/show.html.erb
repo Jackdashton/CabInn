@@ -1,10 +1,16 @@
 <div class="container">
   <%= link_to "Back to flats", flats_path, class: "btn btn-primary" %>
-  <div class="container-images">
-    <% @flat.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
-  </div>
+
+  <%# <div class="container-images">
+    images = <% @flat.photos.each do |photo| %>
+      <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <%# <% end %>
+  <%# </div> %>
+
+    <% image_links = @flat.photos.map {|photo| cl_image_tag photo.key, height: 300, width: 400, crop: :fill} %>
+    <%= render partial: 'shared/carousel', locals: {images: [image_links]}%>
+
+
 
   <div class="container-information">
     <h2><%= @flat.name %></h2>
@@ -42,30 +48,31 @@
     <% end %>
   </div>
 
-<h2>Location</h2>
-<div class="container-map">
-  <div style="width: 80%; height: 500px;"
-    data-controller="map"
-    <%# Must link controller to js file with stimulus %>
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-    <%# Line above keeps API key private %>
-    <p>Address:
-    <br>
-    <%= @flat.address %></p>
-</div>
-  <h2>Reviews</h2>
-  <div>
-    <% @flat.reviews.each do |review| %>
-      <p>Content: <%= review.content %></p>
-      <p>Location: <%= review.location %></p>
-      <p>Cleanliness: <%= review.cleanliness %></p>
-      <p>Value: <%= review.value %></p>
-      <% overall = (review.value + review.location + review.cleanliness)/3.to_f %>
-      <p>Overall: <%= (overall* 2.0).round / 2.0 %></p>
-
-  <% end %>
+  <h2>Location</h2>
+  <div class="container-map">
+    <div style="width: 80%; height: 500px;"
+      data-controller="map"
+      <%# Must link controller to js file with stimulus %>
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      <%# Line above keeps API key private %>
+      <p>Address:
+      <br>
+      <%= @flat.address %></p>
   </div>
 
+  <div class="container-reviews">
+  <h2>Reviews</h2>
+    <div>
+      <% @flat.reviews.each do |review| %>
+        <p>Content: <%= review.content %></p>
+        <p>Location: <%= review.location %></p>
+        <p>Cleanliness: <%= review.cleanliness %></p>
+        <p>Value: <%= review.value %></p>
+        <% overall = (review.value + review.location + review.cleanliness)/3.to_f %>
+        <p>Overall: <%= (overall* 2.0).round / 2.0 %></p>
 
+    <% end %>
+    </div>
+  </div>
 </div>
