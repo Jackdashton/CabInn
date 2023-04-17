@@ -2,18 +2,7 @@
 
 <h3>What dates would you like to stay?</h3>
 
-<%= simple_form_for [@flat, @booking] do |f| %>
-    <%= f.input :arrival, as: :date,
-      wrapper_html: { class: "mb-4" },
-      label_html: { class: "form-label" },
-      input_html: { data: { controller: "flatpickr" } } %>
-    <%= f.input :departure, as: :date,
-      wrapper_html: { class: "mb-4" },
-      label_html: { class: "form-label" },
-      input_html: { data: { controller: "flatpickr" } } %>
-  <%= f.submit "Request booking", class: "btn btn-primary"%>
-<% end %>
-
+<%= render "form", flat: @flat, booking: @booking %>
 
 <h3> Price </h3>
 
