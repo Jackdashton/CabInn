@@ -1,0 +1,29 @@
+.container-images {
+  border: dotted 2px rgb(17, 0, 255);
+  padding: 20px;
+}
+
+.container-information {
+  border: dotted 2px rgb(0, 255, 4);
+  padding: 20px;
+}
+
+.container-buttons {
+  border: dotted 2px rgb(255, 0, 144);
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+
+.container-map{
+  border: solid 2px rgb(27, 12, 238);
+  padding: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.container-reviews{
+  border: solid 2px rgb(4, 124, 135);
+  padding: 20px;
+}
