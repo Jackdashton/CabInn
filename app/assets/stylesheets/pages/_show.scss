@@ -1,6 +1,19 @@
-.container-images {
+.carousel {
   border: dotted 2px rgb(17, 0, 255);
   padding: 20px;
+}
+
+.container-carousel {
+  justify-content: center;
+}
+
+#myCarousel {
+  display: flex;
+  justify-content: center;
+}
+
+#carouselExample {
+  border: none;
 }
 
 .container-information {
