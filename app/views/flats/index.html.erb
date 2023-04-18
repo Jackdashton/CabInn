@@ -6,9 +6,13 @@
         <%# are there photos attached? if true(?) image sample/random display  %>
         <img class="card-img" src="<%= (flat.photos.attached? ? cl_image_path(flat.photos.sample.key) : asset_path("logo.png"))%>">
         <h4><%= link_to flat.name, flat_path((flat)) %></h4>
-        <p>Rating</p>
-        <p>Number of Guests: <%= flat.guest_num  %></p>
-        <p>Price per night: €<%= flat.price_per_night  %></p>
+        <div class="card-info">
+          <p>Number of Guests: <%= flat.guest_num  %></p>
+          <p>Rating</p>
+        </div>
+        <div class="card-price">
+          <p>Price per night: €<%= flat.price_per_night  %></p>
+        </div>
       <% end %>
       </div>
     <% end %>

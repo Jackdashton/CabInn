@@ -1,0 +1,15 @@
+.card {
+  display: flex;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 5;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+h4 {
+  text-align: center;
+}
