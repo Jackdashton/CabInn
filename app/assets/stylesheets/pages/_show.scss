@@ -1,6 +1,19 @@
-.container-images {
+.carousel {
   border: dotted 2px rgb(17, 0, 255);
   padding: 20px;
+}
+
+.container-carousel {
+  justify-content: center;
+}
+
+#myCarousel {
+  display: flex;
+  justify-content: center;
+}
+
+#carouselExample {
+  border: none;
 }
 
 .container-information {
@@ -27,3 +40,10 @@
   border: solid 2px rgb(4, 124, 135);
   padding: 20px;
 }
+
+// Colour Palette
+// Murky Teal – #022831
+// Blue Lagoon – #04566E
+// Pastel Green – #689368
+// Green Pear – #B4D330
+// Blustery Blue – #D8DFE9

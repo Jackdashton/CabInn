@@ -3,3 +3,7 @@
   <h3>Hi <%= current_user.username.capitalize %></h3>
 <% else %>
 <% end %>
+
+<div class="button-index">
+  <%= link_to "See all available cabins", flats_path, class: "btn btn-primary" %>
+</div>

@@ -1,15 +1,21 @@
 <div class="container">
-  <h1>Flats</h1>
+  <div class="cards">
+    <% @flats.each do |flat| %>
+      <div class="card">
+      <%= link_to flat_path(flat) do %>
+        <%# are there photos attached? if true(?) image sample/random display  %>
+        <img class="card-img" src="<%= (flat.photos.attached? ? cl_image_path(flat.photos.sample.key) : asset_path("logo.png"))%>">
+        <h4><%= link_to flat.name, flat_path((flat)) %></h4>
+        <div class="card-info">
+          <p><i class="fa-solid fa-person fa-lg"></i>  <%= flat.guest_num  %></p>
+          <p><i class="fa-solid fa-star fa-lg"></i> Rating </p>
+        </div>
+        <div class="card-price">
+          <p>€<%= flat.price_per_night  %> per night </p>
+        </div>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
 
-  <% @flats.each do |flat| %>
-    <div>
-      <%# are there photos attached? if true(?) image sample/random display  %>
-      <img src="<%= (flat.photos.attached? ? cl_image_path(flat.photos.sample.key) : asset_path("logo.png"))%>">
-      <h4><%= link_to flat.name, flat_path((flat)) %></h4>
-      <p>Address: <%= flat.address %></p>
-      <p>Description: <%= flat.description  %></p>
-      <p>Number of Guests: <%= flat.guest_num  %></p>
-      <p>Price per night: €<%= flat.price_per_night  %></p>
-    </div>
-  <% end %>
 </div>

@@ -1,16 +1,9 @@
 <div class="container">
   <%= link_to "Back to flats", flats_path, class: "btn btn-primary" %>
 
-  <%# <div class="container-images">
-    images = <% @flat.photos.each do |photo| %>
-      <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <%# <% end %>
-  <%# </div> %>
 
-    <% image_links = @flat.photos.map {|photo| cl_image_tag photo.key, height: 300, width: 400, crop: :fill} %>
+    <% image_links = @flat.photos.map {|photo| cl_image_tag photo.key} %>
     <%= render partial: 'shared/carousel', locals: {images: [image_links]}%>
-
-
 
   <div class="container-information">
     <h2><%= @flat.name %></h2>
@@ -48,7 +41,7 @@
     <% end %>
   </div>
 
-  <h2>Location</h2>
+  <h2>Where you'll be staying</h2>
   <div class="container-map">
     <div style="width: 80%; height: 500px;"
       data-controller="map"
@@ -62,7 +55,43 @@
   </div>
 
   <div class="container-reviews">
+
   <h2>Reviews</h2>
+
+  <div class="container-review-scores">
+    <h3>Overall Score</h3>
+      <% total_location = [] %>
+      <% total_cleanliness = [] %>
+      <% total_value = [] %>
+        <% @flat.reviews.map do |review| %>
+          <% total_location << review.location %>
+          <% total_cleanliness << review.cleanliness %>
+          <% total_value << review.value %>
+        <% end %>
+
+        <%# Total Location Rating %>
+        <% if total_location.count != 0  %>
+          <% avg_location = total_location.sum / total_location.count %>
+          <p><strong>Location Rating: </strong><%= avg_location %></p>
+        <% else %>
+          <p><strong>Location Rating: </strong>No current rating</p>
+        <% end %>
+        <%# Total Cleanliess Rating %>
+        <% if total_cleanliness.count != 0  %>
+          <% avg_cleanliness = total_cleanliness.sum / total_cleanliness.count %>
+          <p><strong>Cleanliness Rating: </strong><%= avg_cleanliness %></p>
+        <% else %>
+          <p><strong>Cleanliness Rating: </strong>No current rating</p>
+        <% end %>
+        <%# Total Value Rating %>
+        <% if total_value.count != 0  %>
+          <% avg_value = total_value.sum / total_value.count %>
+          <p><strong>Value Rating: </strong><%= avg_value %></p>
+        <% else %>
+          <p><strong>Value Rating: </strong>No current rating</p>
+        <% end %>
+      </div>
+
     <div>
       <% @flat.reviews.each do |review| %>
         <p>Content: <%= review.content %></p>
