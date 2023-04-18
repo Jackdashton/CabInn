@@ -18,4 +18,8 @@ body {
 
 .card-img {
   border-radius: 10px;
+  filter: contrast(90%);
+}
+.card-img:hover {
+  filter: contrast(100%);
 }
