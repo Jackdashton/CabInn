@@ -1,18 +1,15 @@
 <div class="container">
-
-  <div class="row">
-    <h1>Flats</h1>
-
+  <div class="cards">
     <% @flats.each do |flat| %>
-      <div>
+      <div class="card">
         <%# are there photos attached? if true(?) image sample/random display  %>
-        <img src="<%= (flat.photos.attached? ? cl_image_path(flat.photos.sample.key) : asset_path("logo.png"))%>">
+        <img class="card-img" src="<%= (flat.photos.attached? ? cl_image_path(flat.photos.sample.key) : asset_path("logo.png"))%>">
         <h4><%= link_to flat.name, flat_path((flat)) %></h4>
-        <p>Address: <%= flat.address %></p>
-        <p>Description: <%= flat.description  %></p>
+        <p>Rating</p>
         <p>Number of Guests: <%= flat.guest_num  %></p>
         <p>Price per night: €<%= flat.price_per_night  %></p>
       </div>
     <% end %>
   </div>
+
 </div>
