@@ -1,12 +1,12 @@
 <div id="containerCarousel">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel"> <%# id needed for js functions, class specifies carousel, data-ride tells BS to begin animating the carousel when page loads %>
+  <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel"> <%# id needed for js functions, class specifies carousel, data-ride tells BS to begin animating the carousel when page loads %>
 
     <div class="w-50 d-flex justify-content-center">
-  <div id="carouselExample" class="carousel slide">
+  <div id="carouselExample" class="carousel slide carousel-fade">
   <div class="carousel-inner">
     <% @flat.photos.each_with_index do |photo, index| %>
     <div class="carousel-item <%= 'active' if index.zero? %>">
-        <%= cl_image_tag(photo.key, class: 'w-100') %>
+        <%= cl_image_tag(photo.key, class: 'img-car') %>
     </div>
     <% end %>
   </div>

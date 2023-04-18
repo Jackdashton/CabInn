@@ -2,7 +2,7 @@
   <%= link_to "Back to flats", flats_path, class: "btn btn-primary" %>
 
 
-    <% image_links = @flat.photos.map {|photo| cl_image_tag photo.key, height: 300, width: 400, crop: :fill} %>
+    <% image_links = @flat.photos.map {|photo| cl_image_tag photo.key} %>
     <%= render partial: 'shared/carousel', locals: {images: [image_links]}%>
 
   <div class="container-information">
@@ -41,7 +41,7 @@
     <% end %>
   </div>
 
-  <h2>Location</h2>
+  <h2>Where you'll be staying</h2>
   <div class="container-map">
     <div style="width: 80%; height: 500px;"
       data-controller="map"
