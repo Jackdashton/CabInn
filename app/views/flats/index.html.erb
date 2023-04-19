@@ -7,9 +7,36 @@
         <img class="card-img" src="<%= (flat.photos.attached? ? cl_image_path(flat.photos.sample.key) : asset_path("logo.png"))%>">
         <h4><%= link_to flat.name, flat_path((flat)) %></h4>
         <div class="card-info">
-          <p><i class="fa-solid fa-person fa-lg"></i>  <%= flat.guest_num  %></p>
-          <p><i class="fa-solid fa-star fa-lg"></i> Rating </p>
+          <div class="rating">
+            <p><i class="fa-solid fa-person fa-lg"></i>  <%= flat.guest_num  %></p>
+            <div class="rating_score">
+              <% total_location = [] %>
+              <% total_cleanliness = [] %>
+              <% total_value = [] %>
+              <% flat.reviews.map do |review| %>
+                <% total_location << review.location %>
+                <% total_cleanliness << review.cleanliness %>
+                <% total_value << review.value %>
+              <% end %>
+              <% if total_location.count != 0  %>
+                <% avg_location = (total_location.sum / total_location.count).to_f %>
+              <% end %>
+              <% if total_cleanliness.count != 0  %>
+                <% avg_cleanliness = (total_cleanliness.sum / total_cleanliness.count).to_f %>
+              <% end %>
+              <% if total_value.count != 0  %>
+                <% avg_value = (total_value.sum / total_value.count).to_f %>
+              <% end %>
+              <% if total_cleanliness.count != 0 %>
+                <% @total_rating = ((avg_cleanliness + avg_location + avg_value)/3).to_f %>
+                <p><strong><i class="fa-solid fa-star fa-lg"></i> </strong><%= @total_rating.round(1) %></p>
+              <% else %>
+                <p><i class="fa-solid fa-star fa-lg"></i> N/A</p>
+              <% end %>
+            </div>
+            </div>
         </div>
+
         <div class="card-price">
           <p>€<%= flat.price_per_night  %> per night </p>
         </div>

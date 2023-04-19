@@ -92,12 +92,13 @@
         <% end %>
         <%# Total Overall Rating %>
         <% if total_cleanliness.count != 0 %>
-          <% total_rating = ((avg_cleanliness + avg_location + avg_value)/3).to_f %>
-          <p><strong><i class="fa-solid fa-house fa-lg"></i> Overall Rating: </strong><%= total_rating.round(1) %></p>
+          <% @total_rating = ((avg_cleanliness + avg_location + avg_value)/3).to_f %>
+          <p><strong><i class="fa-solid fa-house fa-lg"></i> Overall Rating: </strong><%= @total_rating.round(1) %></p>
         <% else %>
           <p><strong><i class="fa-solid fa-house fa-lg"></i> Overall Rating: </strong>No current rating</p>
         <% end %>
-      </div>
+  </div>
+
 
     <div>
       <% @flat.reviews.each do |review| %>
