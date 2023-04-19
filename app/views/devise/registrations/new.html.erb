@@ -24,9 +24,10 @@
               <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirm Password' %>
             </div>
 
-            <div>
-              <p>Choose a file for your avatar</p>
-            <%= f.file_field :avatar %></div>
+            <div class="btn-upload">
+              <p><strong>Choose a file for your avatar</strong></p>
+              <%= f.file_field :avatar %>
+            </div>
 
             <div class="form-group">
               <%= f.submit "Sign up", class: "btn btn-primary btn-block btn-lg" %>
@@ -35,7 +36,7 @@
 
         <%= render "devise/shared/links" %>
       </div>
-      
+
     </div>
   </div>
 </div>

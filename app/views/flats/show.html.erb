@@ -1,9 +1,10 @@
 <div class="container">
   <%= link_to "Back to flats", flats_path, class: "btn btn-primary" %>
 
-
-    <% image_links = @flat.photos.map {|photo| cl_image_tag photo.key} %>
-    <%= render partial: 'shared/carousel', locals: {images: [image_links]}%>
+    <div class="carousel-container">
+      <% image_links = @flat.photos.map {|photo| cl_image_tag photo.key} %>
+      <%= render partial: 'shared/carousel', locals: {images: [image_links]}%>
+    </div>
 
   <div class="container-information">
     <h2><%= @flat.name %></h2>

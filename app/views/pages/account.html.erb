@@ -1,8 +1,15 @@
-<h1>Account Information</h1>
+<div class="container">
+  <div class="account-details">
+    <h1>Account Details</h1>
 
-<p>Username: <%= @user.username %></p>
-<p>Email Address: <%= @user.email %></p>
-<p><%= image_tag(@user.avatar, height: "300px", width: "300px") %></p>
+    <p> <strong>Username</strong></p>
+    <%= @user.username %>
+    <p> <strong>Email Address</strong></p>
+    <%= @user.email %></p>
+    <p> <strong>Current Avatar</strong></p>
+    <p><%= image_tag(@user.avatar, height: "300px", width: "300px") %></p>
 
 
-<%= link_to "Edit your account", edit_user_registration_path(@user), class: "btn btn-primary" %>
+    <%= link_to "Edit your account", edit_user_registration_path(@user), class: "btn btn-primary" %>
+  </div>
+</div>
