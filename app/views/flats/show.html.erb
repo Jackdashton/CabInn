@@ -33,8 +33,6 @@
       <%= link_to "Edit this property", edit_flat_path, class: "btn btn-primary" %>
     <% else %>
     <% end %>
-
-
   </div>
 
   <h2>Where you'll be staying</h2>
@@ -97,11 +95,12 @@
 
 
     <div>
-        <%# Cannot leave a review for your own property %>
-      <% if policy(@flat).edit? %>
-      <% else %>
-        <%= link_to "Add a new review", new_flat_review_path(@flat), class: "btn btn-primary" %>
-      <% end %>
+      <div class="container-review-button">  <%# Cannot leave a review for your own property %>
+        <% if policy(@flat).edit? %>
+        <% else %>
+          <%= link_to "Add a new review", new_flat_review_path(@flat), class: "btn btn-primary" %>
+        <% end %>
+      </div>
 
       <% @flat.reviews.each do |review| %>
         <div class="review">
