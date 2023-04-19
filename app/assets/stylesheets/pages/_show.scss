@@ -41,9 +41,31 @@
   padding: 20px;
 }
 
-// Colour Palette
-// Murky Teal – #022831
-// Blue Lagoon – #04566E
-// Pastel Green – #689368
-// Green Pear – #B4D330
-// Blustery Blue – #D8DFE9
+.container-review-scores {
+  display: flex;
+  border-bottom: 1px solid grey;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.review p {
+  margin:5px;
+}
+
+.container-review-button {
+  display: flex;
+  justify-content: center;
+}
