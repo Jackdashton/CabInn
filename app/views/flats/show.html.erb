@@ -34,11 +34,7 @@
     <% else %>
     <% end %>
 
-    <%# Cannot leave a review for your own property %>
-    <% if policy(@flat).edit? %>
-    <% else %>
-      <%= link_to "Add a new review", new_flat_review_path(@flat), class: "btn btn-primary" %>
-    <% end %>
+
   </div>
 
   <h2>Where you'll be staying</h2>
@@ -55,61 +51,69 @@
   </div>
 
   <div class="container-reviews">
+    <h2>Reviews(<%= @flat.reviews.count %>)</h2>
+    <div class="container-review-scores">
+        <% total_location = [] %>
+        <% total_cleanliness = [] %>
+        <% total_value = [] %>
+          <% @flat.reviews.map do |review| %>
+            <% total_location << review.location %>
+            <% total_cleanliness << review.cleanliness %>
+            <% total_value << review.value %>
+          <% end %>
 
-  <h2>Reviews</h2>
+          <%# Total Location Rating %>
+          <% if total_location.count != 0  %>
+            <% avg_location = (total_location.sum / total_location.count).to_f %>
+            <p><strong><i class="fa-solid fa-location-pin fa-lg"></i> Location Rating: </strong><%= avg_location %></p>
+          <% else %>
+            <p><strong><i class="fa-solid fa-location-pin fa-lg"></i> Location Rating: </strong>No current rating</p>
+          <% end %>
 
-  <div class="container-review-scores">
-    <h3>Overall Score</h3>
-      <% total_location = [] %>
-      <% total_cleanliness = [] %>
-      <% total_value = [] %>
-        <% @flat.reviews.map do |review| %>
-          <% total_location << review.location %>
-          <% total_cleanliness << review.cleanliness %>
-          <% total_value << review.value %>
-        <% end %>
+          <%# Total Cleanliess Rating %>
+          <% if total_cleanliness.count != 0  %>
+            <% avg_cleanliness = (total_cleanliness.sum / total_cleanliness.count).to_f %>
+            <p><strong><i class="fa-solid fa-broom fa-lg"></i> Cleanliness Rating: </strong><%= avg_cleanliness %></p>
+          <% else %>
+            <p><strong><i class="fa-solid fa-broom fa-lg"></i> Cleanliness Rating: </strong>No current rating</p>
+          <% end %>
 
-        <%# Total Location Rating %>
-        <% if total_location.count != 0  %>
-          <% avg_location = (total_location.sum / total_location.count).to_f %>
-          <p><strong><i class="fa-solid fa-location-pin fa-lg"></i> Location Rating: </strong><%= avg_location %></p>
-        <% else %>
-          <p><strong><i class="fa-solid fa-location-pin fa-lg"></i> Location Rating: </strong>No current rating</p>
-        <% end %>
-        <%# Total Cleanliess Rating %>
-        <% if total_cleanliness.count != 0  %>
-          <% avg_cleanliness = (total_cleanliness.sum / total_cleanliness.count).to_f %>
-          <p><strong><i class="fa-solid fa-broom fa-lg"></i> Cleanliness Rating: </strong><%= avg_cleanliness %></p>
-        <% else %>
-          <p><strong><i class="fa-solid fa-broom fa-lg"></i> Cleanliness Rating: </strong>No current rating</p>
-        <% end %>
-        <%# Total Value Rating %>
-        <% if total_value.count != 0  %>
-          <% avg_value = (total_value.sum / total_value.count).to_f %>
-          <p><strong><i class="fa-solid fa-coins fa-lg"></i> Value Rating: </strong><%= avg_value %></p>
-        <% else %>
-          <p><strong><i class="fa-solid fa-coins fa-lg"></i> Value Rating: </strong>No current rating</p>
-        <% end %>
-        <%# Total Overall Rating %>
-        <% if total_cleanliness.count != 0 %>
-          <% @total_rating = ((avg_cleanliness + avg_location + avg_value)/3).to_f %>
-          <p><strong><i class="fa-solid fa-house fa-lg"></i> Overall Rating: </strong><%= @total_rating.round(1) %></p>
-        <% else %>
-          <p><strong><i class="fa-solid fa-house fa-lg"></i> Overall Rating: </strong>No current rating</p>
-        <% end %>
-  </div>
+          <%# Total Value Rating %>
+          <% if total_value.count != 0  %>
+            <% avg_value = (total_value.sum / total_value.count).to_f %>
+            <p><strong><i class="fa-solid fa-coins fa-lg"></i> Value Rating: </strong><%= avg_value %></p>
+          <% else %>
+            <p><strong><i class="fa-solid fa-coins fa-lg"></i> Value Rating: </strong>No current rating</p>
+          <% end %>
+
+          <%# Total Overall Rating %>
+          <% if total_cleanliness.count != 0 %>
+            <% @total_rating = ((avg_cleanliness + avg_location + avg_value)/3).to_f %>
+            <p><strong><i class="fa-solid fa-house fa-lg"></i> Overall Rating: </strong><%= @total_rating.round(1) %></p>
+          <% else %>
+            <p><strong><i class="fa-solid fa-house fa-lg"></i> Overall Rating: </strong>No current rating</p>
+          <% end %>
+    </div>
 
 
     <div>
-      <% @flat.reviews.each do |review| %>
-        <p>Content: <%= review.content %></p>
-        <p>Location: <%= review.location %></p>
-        <p>Cleanliness: <%= review.cleanliness %></p>
-        <p>Value: <%= review.value %></p>
-        <% overall = (review.value + review.location + review.cleanliness)/3.to_f %>
-        <p>Overall: <%= (overall* 2.0).round / 2.0 %></p>
+        <%# Cannot leave a review for your own property %>
+      <% if policy(@flat).edit? %>
+      <% else %>
+        <%= link_to "Add a new review", new_flat_review_path(@flat), class: "btn btn-primary" %>
+      <% end %>
 
-    <% end %>
+      <% @flat.reviews.each do |review| %>
+        <div class="review">
+          <p><strong>Content: </strong><%= review.content %></p>
+          <p><strong>Location: </strong><%= review.location %></p>
+          <p><strong>Cleanliness: </strong><%= review.cleanliness %></p>
+          <p><strong>Value: </strong><%= review.value %></p>
+          <% overall = (review.value + review.location + review.cleanliness)/3.to_f %>
+          <p><strong>Overall: </strong><%= ((overall* 2.0).round / 2.0).to_i %></p>
+        </div>
+      <% end %>
     </div>
+
   </div>
 </div>
