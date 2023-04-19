@@ -1,11 +1,14 @@
-<h1>Booking</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4">
 
-<h3>What dates would you like to stay?</h3>
+      <div class="form-login">
+        <h1>Booking</h1>
+        <h3>What dates would you like to stay?</h3>
+        <%= render "form", flat: @flat, booking: @booking %>
+        <h3> Price </h3>
+      </div>
 
-<%= render "form", flat: @flat, booking: @booking %>
-
-<h3> Price </h3>
-
-<%# (end_date - start_date).to_i
-<% @total_days = (departure-arrival).to_i %>
-<%# <%= @total_days %>
+    </div>
+  </div>
+</div>
