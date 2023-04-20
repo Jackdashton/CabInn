@@ -1,0 +1,28 @@
+// Back Button
+.btn-back {
+  border: 1px solid black;
+  background-color:#8ce6dd;
+  border-radius: 3px;
+}
+
+.btn-back:hover {
+  background-color: #77eee2;
+  color: white;
+  border: 1px solid rgb(249, 249, 249);
+  border-radius: 3px;
+  a {
+    color: white;
+  }
+}
+
+// Book the property & Add a Review
+
+// Delete property button
+.btn-delete {
+  background-color: red;
+  border-radius: 2px;
+}
+
+.btn-delete:hover {
+  background-color: rgb(204, 4, 4);
+}

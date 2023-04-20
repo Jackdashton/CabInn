@@ -1,6 +1,5 @@
 <div class="container">
-  <%= link_to "Back to flats", flats_path, class: "btn btn-primary" %>
-
+  <li class="btn btn-back"><i class="fa-solid fa-backward-step fa-lg"></i><%= link_to " Back to Cabins", flats_path %></li>
     <div class="carousel-container">
       <% image_links = @flat.photos.map {|photo| cl_image_tag photo.key} %>
       <%= render partial: 'shared/carousel', locals: {images: [image_links]}%>
@@ -23,10 +22,10 @@
     <% end %>
 
     <% if policy(@flat).destroy? %>
-      <%= link_to "Delete",
-        flat_path(@flat), class: "btn btn-danger",
+      <li class="btn btn-delete"><i class="fa-solid fa-trash fa-lg"></i><%= link_to "Delete",
+        flat_path(@flat), class: "btn btn-delete",
         data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-      %>
+      %></li>
     <% else %>
     <% end %>
 
