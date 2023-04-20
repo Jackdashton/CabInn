@@ -1,8 +1,14 @@
-<h1>My Flats</h1>
-
-
-<% @my_flats.each do |flat| %>
-              <p><strong><%=link_to flat.name, flat_path(flat)%></strong></p>
-              <p><strong>Address:</strong> <%= flat.address %> </p>
-              <p><strong>About:</strong> <%=flat.description %> </p>
-<% end %>
+<div class="container">
+  <h1>My Properties</h1>
+  <div class="cards">
+    <% @my_flats.each do |flat| %>
+      <div class="card">
+      <%= link_to flat_path(flat) do %>
+        <%# are there photos attached? if true(?) image sample/random display  %>
+        <img class="card-img" src="<%= (flat.photos.attached? ? cl_image_path(flat.photos.sample.key) : asset_path("logo.png"))%>">
+        <h4><%= link_to flat.name, flat_path((flat)) %></h4>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
