@@ -5,7 +5,6 @@ import flatpickr from "flatpickr";
 export default class extends Controller {
   connect() {
     new flatpickr(this.element, {
-      enableTime: true,
       minDate: "today",
       // altInput: true,
       // altFormat: "F j, Y",
@@ -15,4 +14,3 @@ export default class extends Controller {
     });
   }
 }
-

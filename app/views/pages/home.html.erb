@@ -1,9 +1,10 @@
-<h1>Welcome to CabInn</h1>
-<% if user_signed_in? %>
-  <h3>Hi <%= current_user.username.capitalize %></h3>
-<% else %>
-<% end %>
+<div class="container">
+  <h1>Welcome to CabInn</h1>
+  <% if user_signed_in? %>
+    <h3>Hi <%= current_user.username.capitalize %></h3>
+  <% end %>
 
-<div class="button-index">
-  <%= link_to "See all available cabins", flats_path, class: "btn btn-primary" %>
+  <div class="button-index">
+    <%= link_to "See all available cabins", flats_path, class: "btn btn-primary" %>
+  </div>
 </div>
