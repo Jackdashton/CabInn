@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_flat, only: %i[new create update calc_nights]
   before_action :set_booking, only: %i[update destroy calc_nights]
+  before_action :set_user
 
   # We need to create a booking and render a form(new)
   # We need to update the status - accepted or not (true/false)
@@ -57,5 +58,9 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def set_user
+    @user = current_user
   end
 end

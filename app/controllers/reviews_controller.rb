@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_flat, only: %i[new create]
+  before_action :set_user
 
   def new
     @review = Review.new
@@ -36,5 +37,9 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:content, :location, :cleanliness, :value)
+  end
+
+  def set_user
+    @user = current_user
   end
 end

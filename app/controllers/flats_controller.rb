@@ -1,4 +1,5 @@
 class FlatsController < ApplicationController
+  before_action :set_user
 
   def index
     @flats = policy_scope(Flat).all
@@ -95,4 +96,9 @@ class FlatsController < ApplicationController
     params.require(:flat).permit(:name, :address, :description, :guest_num, :price_per_night, photos: [])
     # Need photos (plural) as an empty array to allow multiple photo uploads.
   end
+
+  def set_user
+    @user = current_user
+  end
+
 end
