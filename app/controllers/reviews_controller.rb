@@ -19,15 +19,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-
-  # def destroy
-  #   # Ensure before_action does not effect this method
-  #   @review = Review.find(params[:id])
-  #   authorize(@review)
-  #   @review.destroy
-  #   redirect_to flat_path(@review.flat), status: :see_other
-  # end
-
   private
 
   def set_flat
