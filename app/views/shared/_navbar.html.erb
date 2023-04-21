@@ -16,7 +16,7 @@
           </li>
 
           <li class="nav-item dropdown">
-            <%= image_tag "https://res.cloudinary.com/dsnbfig6c/image/upload/v1680879527/146-1468479_my-profile-icon-blank-profile-picture-circle-hd_nteu93.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag(@user.avatar, height: "30px", width: "30px", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Account", account_path, class: "dropdown-item" %>
               <%= link_to "Bookings", bookings_path, class: "dropdown-item" %>

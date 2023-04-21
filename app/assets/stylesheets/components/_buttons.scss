@@ -1,0 +1,44 @@
+// Back Button
+.btn-back {
+  border: 1px solid black;
+  background-color:#8ce6dd;
+  border-radius: 3px;
+}
+
+.btn-back:hover {
+  background-color: #77eee2;
+  color: white;
+  border: 1px solid rgb(249, 249, 249);
+  border-radius: 3px;
+  a {
+    color: white;
+  }
+}
+
+// Book the property & Add a Review
+
+.btn-reserve {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 14px 24px;
+  border: none;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+  background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
+  color: #fff;
+}
+
+
+// Delete property button
+.btn-delete {
+  background-color: red;
+  border-radius: 2px;
+}
+
+.btn-delete:hover {
+  background-color: rgb(204, 4, 4);
+}
