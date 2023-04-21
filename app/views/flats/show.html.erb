@@ -18,7 +18,7 @@
     <%# if user is owner, hide book this property %>
     <% if policy(@flat).edit? %>
     <% else %>
-      <%= link_to "Book the property", new_flat_booking_path(@flat), class: "btn btn-primary" %>
+      <%= link_to "Reserve this Cabin", new_flat_booking_path(@flat), class: "btn-reserve" %>
     <% end %>
 
     <% if policy(@flat).destroy? %>
@@ -98,7 +98,7 @@
       <div class="container-review-button">  <%# Cannot leave a review for your own property %>
         <% if policy(@flat).edit? %>
         <% else %>
-          <%= link_to "Add a new review", new_flat_review_path(@flat), class: "btn btn-primary" %>
+          <%= link_to "Add a new review", new_flat_review_path(@flat), class: "btn-reserve" %>
         <% end %>
       </div>
 
