@@ -12,3 +12,19 @@ h1 {
     margin-bottom: 5px;
   }
 }
+
+.card-category {
+  height: 200px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#container-body {
+  padding: 20px;
+  margin-top: 20px;
+  background-color: whitesmoke;
+}
