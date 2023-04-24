@@ -1,32 +1,55 @@
-h1 {
-  color: green;
+
+.row h1 {
+  color: #100f0f;
+}
+.left {
+  width: 60%;
+  height: 100%;
 }
 
-.account-details {
-  border: 1px solid grey;
-  background-color: white;
-  padding: 15px;
-  border-radius: 10px;
-  p {
-    padding-top: 5px;
-    margin-bottom: 5px;
-  }
+.right {
+  width: 40%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .background-image {
   background-image: url("landing_page.png.PNG");
-  // background-repeat: no-repeat;
-  // background-size: cover;
   width: 100%;
-  // min-height: 100vh;
-  // color: white;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  // overflow-y: hidden;
   object-fit: fill;
   height: 100vh;
-  background-position: center;
-  padding: 150px 0;
   background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-landing {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 14px 24px;
+  border: solid 2px black;
+  background-color: rgba(240, 255, 255, 0.645);
+  color: #100f0f;
+}
+
+.button-landing:hover {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 14px 24px;
+  border: solid 2px black;
+  background-color: rgb(240, 255, 255);
+  color: #343232;
 }
