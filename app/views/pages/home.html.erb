@@ -1,10 +1,23 @@
-<div class="container">
-  <h1>Welcome to CabInn</h1>
-  <% if user_signed_in? %>
-    <h3>Hi <%= current_user.username.capitalize %></h3>
-  <% end %>
 
-  <div class="button-index">
-    <%= link_to "See all available cabins", flats_path, class: "btn btn-primary" %>
+  <div class="row">
+    <div class="left">
+      <div class="background-image">
+        <%= link_to "See All Available Cabins", flats_path, class: "btn button-landing" %>
+      </div>
+    </div>
+
+  <div class="right">
+    <div class="banner-content">
+      <h1><strong>Welcome to CabInn</strong></h1>
+      <% if user_signed_in? %>
+        <h3><strong>Hi <%= current_user.username.capitalize %></strong></h3>
+      <% end %>
+      <p><strong>
+      Want to escape the hustle and bustle of city life and immerse yourself in the tranquility of nature?
+      Our platform is designed to connect you with the most picturesque and comfortable cabins across the globe,
+      providing a seamless and hassle-free booking experience. Whether you're looking for a cozy cabin for a romantic getaway,
+      a spacious cabin for a family reunion, or a luxurious cabin for a corporate retreat, we've got you covered.</strong></p>
+    </div>
   </div>
+
 </div>
