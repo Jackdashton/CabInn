@@ -1,13 +1,17 @@
 <div class="container">
-<h1>Edit <%= @flat.name %> </h1>
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4">
 
-  <%= simple_form_for(@flat) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :description %>
-    <%= f.input :guest_num %>
-    <%= f.input :price_per_night %>
-    <%= f.submit %>
-  <% end %>
+      <h1>Edit <%= @flat.name %> </h1>
 
+        <%= simple_form_for(@flat) do |f| %>
+          <%= f.input :name %>
+          <%= f.input :address %>
+          <%= f.input :description %>
+          <%= f.input :guest_num %>
+          <%= f.input :price_per_night %>
+          <%= f.submit "Add Flat", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+  </div>
 </div>

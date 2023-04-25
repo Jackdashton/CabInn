@@ -1,20 +1,24 @@
 <div class="container">
-  <h1>My Bookings</h1>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <h1>My Bookings</h1>
 
-  <div>
-    <% @requested_bookings.each do |booking| %>
-      <div class="review">
-        <p> <strong>User: </strong><%= booking.user_id  %></p>
-        <p><strong>Arrival: </strong><%= booking.arrival  %></p>
-        <p><strong>Departure: </strong><%= booking.departure  %></p>
-        <p><strong>Nights:  </strong></p>
-        <% if booking.status == true %>
-          <p><strong>Status: </strong>Confirmed</p>
-        <% else %>
-        <p><strong>Status: </strong>Not yet Confirmed</p>
+      <div>
+        <% @requested_bookings.each do |booking| %>
+          <div class="review">
+            <p> <strong>User: </strong><%= booking.user_id  %></p>
+            <p><strong>Arrival: </strong><%= booking.arrival  %></p>
+            <p><strong>Departure: </strong><%= booking.departure  %></p>
+            <p><strong>Nights:  </strong></p>
+            <% if booking.status == true %>
+              <p><strong>Status: </strong>Confirmed</p>
+            <% else %>
+            <p><strong>Status: </strong>Not yet Confirmed</p>
+            <% end %>
+          </div>
         <% end %>
       </div>
-    <% end %>
-  </div>
 
+    </div>
+  </div>
 </div>
