@@ -1,7 +1,8 @@
 class BookingsController < ApplicationController
-  before_action :set_flat, only: %i[new create update calc_nights]
-  before_action :set_booking, only: %i[update destroy calc_nights]
+  before_action :set_flat, only: %i[new create update]
+  before_action :set_booking, only: %i[update destroy]
   before_action :set_user
+  require 'date'
 
   # We need to create a booking and render a form(new)
   # We need to update the status - accepted or not (true/false)
@@ -27,10 +28,10 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-    calc_nights
   end
 
   def update
+    @booking = Booking.find(booking_params)
     @booking.status = true
     @booking.save
     redirect_to flats_path
@@ -39,11 +40,6 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     redirect_to flats_path
-  end
-
-  # Method to calculate the no. of nights
-  def calc_nights
-    @nights = (@booking.arrival-@booking.departure).to_i
   end
 
   private

@@ -3,15 +3,17 @@
 
   <div>
     <% @requested_bookings.each do |booking| %>
-      <p> <strong>User: </strong><%= booking.user_id  %></p>
-      <p><strong>Arrival: </strong><%= booking.arrival  %></p>
-      <p><strong>Departure: </strong><%= booking.departure  %></p>
-      <p><strong>Nights: </strong></p>
-      <% if booking.status == true %>
-        <p>Confirmed</p>
-      <% else %>
-      <p>Not yet Confirmed</p>
-      <% end %>
+      <div class="review">
+        <p> <strong>User: </strong><%= booking.user_id  %></p>
+        <p><strong>Arrival: </strong><%= booking.arrival  %></p>
+        <p><strong>Departure: </strong><%= booking.departure  %></p>
+        <p><strong>Nights:  </strong></p>
+        <% if booking.status == true %>
+          <p><strong>Status: </strong>Confirmed</p>
+        <% else %>
+        <p><strong>Status: </strong>Not yet Confirmed</p>
+        <% end %>
+      </div>
     <% end %>
   </div>
 
