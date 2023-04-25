@@ -1,118 +1,123 @@
 <div class="container">
   <li class="btn btn-back"><i class="fa-solid fa-backward-step fa-lg"></i><%= link_to " Back to Cabins", flats_path %></li>
-    <div class="carousel-container">
-      <% image_links = @flat.photos.map {|photo| cl_image_tag photo.key} %>
-      <%= render partial: 'shared/carousel', locals: {images: [image_links]}%>
-    </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
 
-  <div class="container-information">
-    <h2><%= @flat.name %></h2>
-    <p>Address: <%= @flat.address %></p>
-    <p>Description: <%= @flat.description  %></p>
-    <p>Number of Guests: <%= @flat.guest_num  %></p>
-    <p>Price per night: €<%= @flat.price_per_night  %></p>
-    <%# <p>Rating: <%= @flat.rating %>
-  </div>
+      <div class="carousel-container">
+        <% image_links = @flat.photos.map {|photo| cl_image_tag photo.key} %>
+        <%= render partial: 'shared/carousel', locals: {images: [image_links]}%>
+      </div>
 
-  <div class="container-buttons">
-    <%# if user is owner, hide book this property %>
-    <% if policy(@flat).edit? %>
-    <% else %>
-      <%= link_to "Reserve this Cabin", new_flat_booking_path(@flat), class: "btn-reserve" %>
-    <% end %>
+      <div class="container-information">
+        <h2><%= @flat.name %></h2>
+        <p>Address: <%= @flat.address %></p>
+        <p>Description: <%= @flat.description  %></p>
+        <p>Number of Guests: <%= @flat.guest_num  %></p>
+        <p>Price per night: €<%= @flat.price_per_night  %></p>
+        <%# <p>Rating: <%= @flat.rating %>
+      </div>
 
-    <% if policy(@flat).destroy? %>
-      <li class="btn btn-delete"><i class="fa-solid fa-trash fa-lg"></i><%= link_to "Delete",
-        flat_path(@flat), class: "btn btn-delete",
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-      %></li>
-    <% else %>
-    <% end %>
-
-    <% if policy(@flat).edit? %>
-      <%= link_to "Edit this property", edit_flat_path, class: "btn btn-primary" %>
-    <% else %>
-    <% end %>
-  </div>
-
-  <h2>Where you'll be staying</h2>
-  <div class="container-map">
-    <div style="width: 80%; height: 500px;"
-      data-controller="map"
-      <%# Must link controller to js file with stimulus %>
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-      <%# Line above keeps API key private %>
-      <p>Address:
-      <br>
-      <%= @flat.address %></p>
-  </div>
-
-  <div class="container-reviews">
-    <h2>Reviews(<%= @flat.reviews.count %>)</h2>
-    <div class="container-review-scores">
-        <% total_location = [] %>
-        <% total_cleanliness = [] %>
-        <% total_value = [] %>
-          <% @flat.reviews.map do |review| %>
-            <% total_location << review.location %>
-            <% total_cleanliness << review.cleanliness %>
-            <% total_value << review.value %>
-          <% end %>
-
-          <%# Total Location Rating %>
-          <% if total_location.count != 0  %>
-            <% avg_location = (total_location.sum / total_location.count).to_f %>
-            <p><strong><i class="fa-solid fa-location-pin fa-lg"></i> Location Rating: </strong><%= avg_location %></p>
-          <% else %>
-            <p><strong><i class="fa-solid fa-location-pin fa-lg"></i> Location Rating: </strong>No current rating</p>
-          <% end %>
-
-          <%# Total Cleanliess Rating %>
-          <% if total_cleanliness.count != 0  %>
-            <% avg_cleanliness = (total_cleanliness.sum / total_cleanliness.count).to_f %>
-            <p><strong><i class="fa-solid fa-broom fa-lg"></i> Cleanliness Rating: </strong><%= avg_cleanliness %></p>
-          <% else %>
-            <p><strong><i class="fa-solid fa-broom fa-lg"></i> Cleanliness Rating: </strong>No current rating</p>
-          <% end %>
-
-          <%# Total Value Rating %>
-          <% if total_value.count != 0  %>
-            <% avg_value = (total_value.sum / total_value.count).to_f %>
-            <p><strong><i class="fa-solid fa-coins fa-lg"></i> Value Rating: </strong><%= avg_value %></p>
-          <% else %>
-            <p><strong><i class="fa-solid fa-coins fa-lg"></i> Value Rating: </strong>No current rating</p>
-          <% end %>
-
-          <%# Total Overall Rating %>
-          <% if total_cleanliness.count != 0 %>
-            <% @total_rating = ((avg_cleanliness + avg_location + avg_value)/3).to_f %>
-            <p><strong><i class="fa-solid fa-house fa-lg"></i> Overall Rating: </strong><%= @total_rating.round(1) %></p>
-          <% else %>
-            <p><strong><i class="fa-solid fa-house fa-lg"></i> Overall Rating: </strong>No current rating</p>
-          <% end %>
-    </div>
-
-
-    <div>
-      <div class="container-review-button">  <%# Cannot leave a review for your own property %>
+      <div class="container-buttons">
+        <%# if user is owner, hide book this property %>
         <% if policy(@flat).edit? %>
         <% else %>
-          <%= link_to "Add a new review", new_flat_review_path(@flat), class: "btn-reserve" %>
+          <%= link_to "Reserve this Cabin", new_flat_booking_path(@flat), class: "btn-reserve" %>
+        <% end %>
+
+        <% if policy(@flat).destroy? %>
+          <li class="btn btn-delete"><i class="fa-solid fa-trash fa-lg"></i><%= link_to "Delete",
+            flat_path(@flat), class: "btn btn-delete",
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          %></li>
+        <% else %>
+        <% end %>
+
+        <% if policy(@flat).edit? %>
+          <%= link_to "Edit this property", edit_flat_path, class: "btn btn-primary" %>
+        <% else %>
         <% end %>
       </div>
 
-      <% @flat.reviews.each do |review| %>
-        <div class="review">
-          <p><strong>Content: </strong><%= review.content %></p>
-          <p><strong>Location: </strong><%= review.location %></p>
-          <p><strong>Cleanliness: </strong><%= review.cleanliness %></p>
-          <p><strong>Value: </strong><%= review.value %></p>
-          <% overall = (review.value + review.location + review.cleanliness)/3.to_f %>
-          <p><strong>Overall: </strong><%= ((overall* 2.0).round / 2.0).to_i %></p>
-        </div>
-      <% end %>
-    </div>
+      <h2>Where you'll be staying</h2>
+      <div class="container-map">
+        <div style="width: 80%; height: 500px;"
+          data-controller="map"
+          <%# Must link controller to js file with stimulus %>
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+          <%# Line above keeps API key private %>
+          <p>Address:
+          <br>
+          <%= @flat.address %></p>
+      </div>
 
+      <div class="container-reviews">
+        <h2>Reviews(<%= @flat.reviews.count %>)</h2>
+        <div class="container-review-scores">
+            <% total_location = [] %>
+            <% total_cleanliness = [] %>
+            <% total_value = [] %>
+              <% @flat.reviews.map do |review| %>
+                <% total_location << review.location %>
+                <% total_cleanliness << review.cleanliness %>
+                <% total_value << review.value %>
+              <% end %>
+
+              <%# Total Location Rating %>
+              <% if total_location.count != 0  %>
+                <% avg_location = (total_location.sum / total_location.count).to_f %>
+                <p><strong><i class="fa-solid fa-location-pin fa-lg"></i> Location Rating: </strong><%= avg_location %></p>
+              <% else %>
+                <p><strong><i class="fa-solid fa-location-pin fa-lg"></i> Location Rating: </strong>No current rating</p>
+              <% end %>
+
+              <%# Total Cleanliess Rating %>
+              <% if total_cleanliness.count != 0  %>
+                <% avg_cleanliness = (total_cleanliness.sum / total_cleanliness.count).to_f %>
+                <p><strong><i class="fa-solid fa-broom fa-lg"></i> Cleanliness Rating: </strong><%= avg_cleanliness %></p>
+              <% else %>
+                <p><strong><i class="fa-solid fa-broom fa-lg"></i> Cleanliness Rating: </strong>No current rating</p>
+              <% end %>
+
+              <%# Total Value Rating %>
+              <% if total_value.count != 0  %>
+                <% avg_value = (total_value.sum / total_value.count).to_f %>
+                <p><strong><i class="fa-solid fa-coins fa-lg"></i> Value Rating: </strong><%= avg_value %></p>
+              <% else %>
+                <p><strong><i class="fa-solid fa-coins fa-lg"></i> Value Rating: </strong>No current rating</p>
+              <% end %>
+
+              <%# Total Overall Rating %>
+              <% if total_cleanliness.count != 0 %>
+                <% @total_rating = ((avg_cleanliness + avg_location + avg_value)/3).to_f %>
+                <p><strong><i class="fa-solid fa-house fa-lg"></i> Overall Rating: </strong><%= @total_rating.round(1) %></p>
+              <% else %>
+                <p><strong><i class="fa-solid fa-house fa-lg"></i> Overall Rating: </strong>No current rating</p>
+              <% end %>
+        </div>
+
+
+        <div>
+          <div class="container-review-button">  <%# Cannot leave a review for your own property %>
+            <% if policy(@flat).edit? %>
+            <% else %>
+              <%= link_to "Add a new review", new_flat_review_path(@flat), class: "btn-reserve" %>
+            <% end %>
+          </div>
+
+          <% @flat.reviews.each do |review| %>
+            <div class="review">
+              <p><strong>Content: </strong><%= review.content %></p>
+              <p><strong>Location: </strong><%= review.location %></p>
+              <p><strong>Cleanliness: </strong><%= review.cleanliness %></p>
+              <p><strong>Value: </strong><%= review.value %></p>
+              <% overall = (review.value + review.location + review.cleanliness)/3.to_f %>
+              <p><strong>Overall: </strong><%= ((overall* 2.0).round / 2.0).to_i %></p>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>
