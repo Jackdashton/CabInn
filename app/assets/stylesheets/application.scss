@@ -8,6 +8,7 @@
 @import "font-awesome";
 @import "flatpickr/dist/flatpickr";
 @import "flatpickr/dist/themes/airbnb";
+@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
 
 // Your CSS partials
 @import "components/index";
@@ -22,4 +23,5 @@
 @import "components/carousel";
 @import "components/buttons";
 @import "components/banner";
-@import "pages/home"
+@import "pages/home";
+@import "components/address_autocomplete";

@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 
 
 export default class extends Controller {
@@ -17,6 +18,9 @@ export default class extends Controller {
     // Private function
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+    this.map.addControl(new MapboxGeocoder ({ accessToken:
+    mapboxgl.accessToken,
+    mapboxgl: mapboxgl }))
   }
 
   #addMarkersToMap() {
