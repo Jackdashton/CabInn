@@ -1,5 +1,8 @@
 # CabInn 
-## Cabinn is a marketplace app for finding a rental cabin at a holiday destination of your choosing. 
+## Cabinn is a marketplace app for finding a rental cabin at a holiday destination of your choosing.
+
+### Technologies
+####### Ruby on Rails
 
 
 
