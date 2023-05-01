@@ -7,7 +7,7 @@ Cabinn is a marketplace app for finding a rental cabin at a holiday destination 
 * [Project Description](#project-description)
 * [Table of Contents](#table-of-contents)
 * [Technologies](#technologies)
-* [How to Install & Run](#how-to-install-&-run)
+* [How to Install and Run](#how-to-install-and-run)
 * [How to Use the Project](#how-to-use-the-project)
 
 
@@ -19,7 +19,7 @@ Cabinn is a marketplace app for finding a rental cabin at a holiday destination 
 * HTML
 
 
-## How to Install & Run
+## How to Install and Run
 
 ## How to use the Project
 
