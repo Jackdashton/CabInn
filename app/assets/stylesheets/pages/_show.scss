@@ -1,5 +1,5 @@
 .carousel {
-  border: dotted 2px rgb(17, 0, 255);
+  border-bottom: solid 1px  #767676;
   padding: 20px;
 }
 
@@ -17,12 +17,12 @@
 }
 
 .container-information {
-  border: dotted 2px rgb(0, 255, 4);
+  border-bottom: solid 1px  #767676;
   padding: 20px;
 }
 
 .container-buttons {
-  border: dotted 2px rgb(255, 0, 144);
+  border-bottom: solid 1px  #767676;
   display: flex;
   justify-content: center;
   justify-content: space-evenly;
@@ -30,14 +30,14 @@
 }
 
 .container-map{
-  border: solid 2px rgb(27, 12, 238);
+  border-bottom: solid 1px  #767676;
   padding: 20px;
   display: flex;
   justify-content: space-evenly;
 }
 
 .container-reviews{
-  border: solid 2px rgb(4, 124, 135);
+  border-bottom: solid 1px  #767676;
   padding: 20px;
 }
 
@@ -69,4 +69,3 @@
   display: flex;
   justify-content: center;
 }
-

@@ -4,7 +4,7 @@
 }
 
 .form-login {
-  background: rgb(191, 247, 247);
+  background: #335c67;
   padding: 10px 20px;
   margin-top: 50px;
   border-radius: 3px;
@@ -14,16 +14,25 @@
     font-weight: bold;
     margin-bottom: 30px;
     text-align: center;
+    color: white;
   }
   .btn {
     width: 100%;
     margin-bottom: 20px;
     border: 1px solid black;
-    background-color: rgb(8, 232, 244);
+    background-color: #e09f3e;
   }
   h1 {
     text-align: center;
   }
+  a {
+    color: white;
+  }
+  p {
+    color: white;
+    text-align: center;
+  }
+
 }
 
 .form-group {
@@ -34,3 +43,12 @@
   margin-left: 5px;
   padding: 10px;
 }
+
+.form-label {
+  color: white;
+}
+
+.form-check-label {
+  color: white;
+}
+
