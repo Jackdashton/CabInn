@@ -25,6 +25,14 @@
   h1 {
     text-align: center;
   }
+  a {
+    color: white;
+  }
+  p {
+    color: white;
+    text-align: center;
+  }
+
 }
 
 .form-group {
@@ -35,3 +43,12 @@
   margin-left: 5px;
   padding: 10px;
 }
+
+.form-label {
+  color: white;
+}
+
+.form-check-label {
+  color: white;
+}
+
