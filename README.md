@@ -13,7 +13,7 @@ The project was undertaken to improve and add to the fundamentals of Ruby on Rai
 * [Screenshots](#screenshots)
 * [Setup](#setup)
 * [Usage](#usage)
-* [Project Status)(#project-status)
+* [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
 
 ## Technologies
@@ -53,7 +53,7 @@ Room for improvement:
 - Add real time booking requests using JS
 To do:
 - Mapbox Search feature to be added to the index page. 
-- 
+
 
 
 
