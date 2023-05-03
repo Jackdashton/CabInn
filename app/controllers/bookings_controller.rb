@@ -20,6 +20,8 @@ class BookingsController < ApplicationController
     @booking.flat = @flat
     @booking.user = current_user
     authorize(@booking)
+    # @booking.nights
+    # @booking.flat.price_per_night
     # Booking status false when initialised.
     @booking.status = false
     # if the booking can be saved with validations, then redirect otherwise re-render form.
