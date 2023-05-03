@@ -9,7 +9,9 @@
             <p> <strong>User: </strong><%= booking.user_id  %></p>
             <p><strong>Arrival: </strong><%= booking.arrival  %></p>
             <p><strong>Departure: </strong><%= booking.departure  %></p>
-            <p><strong>Nights:  </strong></p>
+            <% nights = (booking.departure.to_time.to_i - booking.arrival.to_time.to_i) / 86400 %>
+            <p><strong>Nights: </strong><%= nights  %></p>
+            <p><strong>Total Price: </strong>£<%= nights*(booking.flat.price_per_night) %></p>
             <% if booking.status == true %>
               <p><strong>Status: </strong>Confirmed</p>
             <% else %>
