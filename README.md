@@ -25,15 +25,16 @@ The project was undertaken to improve and add to the fundamentals of Ruby on Rai
 
 ## Features
 List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+- Mapbox Geolocation
+- Leave reviews of properties
+- Book properties
 
 ## Screenshots
 ![Example screenshot](./img/screenshot.png)
 <!-- If you have screenshots you'd like to share, include them here. -->
 
 ## Setup
+1. Clone the repository - git clone git@github.com:jackdashton/CabInn.git
 What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
 
 Proceed to describe how to install / setup one's local environment / get started with the project.
@@ -45,7 +46,7 @@ Provide various use cases and code examples here.
 `write-your-code-here`
 
 ## Project Status
-Project is: _in progress.
+Project is: In progress.
 
 
 ## Room for Improvement
