@@ -30,8 +30,10 @@ List the ready features here:
 - Book properties
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
-<!-- If you have screenshots you'd like to share, include them here. -->
+![Landing Page](https://user-images.githubusercontent.com/122602433/235965156-3be757f2-53a6-44e0-9581-0416f7550e63.JPG)
+<br />
+<br />
+![Reviews](https://user-images.githubusercontent.com/122602433/235965168-ae045dc1-16ff-4c19-b336-1558e36b0f6e.JPG)
 
 ## Setup
 1. Clone the repository - git clone git@github.com:jackdashton/CabInn.git
