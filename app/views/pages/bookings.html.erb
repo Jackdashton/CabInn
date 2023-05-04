@@ -10,8 +10,12 @@
             <p><strong>Arrival: </strong><%= booking.arrival  %></p>
             <p><strong>Departure: </strong><%= booking.departure  %></p>
             <% nights = (booking.departure.to_time.to_i - booking.arrival.to_time.to_i) / 86400 %>
-            <p><strong>Nights: </strong><%= nights  %></p>
-            <p><strong>Total Price: </strong>£<%= nights*(booking.flat.price_per_night) %></p>
+            <% if nights < 0 %>
+              <p><strong>Nights:</strong> Your arrival date is after your departure date, please make another booking</p>
+            <% else %>
+              <p><strong>Nights: </strong><%= nights  %></p>
+              <p><strong>Total Price: </strong>£<%= nights*(booking.flat.price_per_night) %></p>
+            <% end %>
             <% if booking.status == true %>
               <p><strong>Status: </strong>Confirmed</p>
             <% else %>
