@@ -7,6 +7,7 @@
         <% @requested_bookings.each do |booking| %>
           <div class="review">
             <p> <strong>User: </strong><%= booking.user_id  %></p>
+            <p> <strong>Cabin: </strong><%= booking.flat.name  %></p>
             <p><strong>Arrival: </strong><%= booking.arrival  %></p>
             <p><strong>Departure: </strong><%= booking.departure  %></p>
             <% nights = (booking.departure.to_time.to_i - booking.arrival.to_time.to_i) / 86400 %>
