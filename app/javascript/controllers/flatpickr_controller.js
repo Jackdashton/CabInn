@@ -6,11 +6,6 @@ export default class extends Controller {
   connect() {
     new flatpickr(this.element, {
       minDate: "today",
-      // altInput: true,
-      // altFormat: "F j, Y",
-      // dateFormat: "Y-m-d",
-      // inline: true
-      // More options available in documentation
     });
   }
 }
