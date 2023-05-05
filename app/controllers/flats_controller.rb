@@ -53,43 +53,6 @@ class FlatsController < ApplicationController
     redirect_to flats_path, status: :see_other
   end
 
-  # def ratings
-  #   total_location = []
-  #   total_cleanliness = []
-  #   total_value = []
-  #   total_rating = 0
-
-  #   @flat.reviews.map do |review|
-  #     total_location << review.location
-  #     total_cleanliness << review.cleanliness
-  #     total_value << review.value
-  #   end
-
-  #   if total_location.count != 0
-  #     avg_location = (total_location.sum / total_location.count).to_f
-  #   else
-  #     avg_location = "No Ratings Yet"
-  #   end
-
-  #   if total_cleanliness.count != 0
-  #     avg_cleanliness = (total_cleanliness.sum / total_cleanliness.count).to_f
-  #   else
-  #     avg_cleanliness = "No Ratings Yet"
-  #   end
-
-  #   if total_value.count != 0
-  #     avg_value = (total_value.sum / total_value.count).to_f
-  #   else
-  #     avg_value = "No Ratings Yet"
-  #   end
-
-  #   if total_value.count != 0
-  #     avg_rating = ((avg_cleanliness + avg_location + avg_value) / 3)
-  #   else
-  #     avg_rating = "No Ratings Yet"
-  #   end
-  # end
-
   private
 
   def flat_params
