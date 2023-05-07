@@ -12,7 +12,7 @@ The project was undertaken to improve and add to the fundamentals of Ruby on Rai
 * [Features](#features)
 * [Screenshots](#screenshots)
 * [Setup](#setup)
-* [Usage](#usage)
+* [Testing](#testing)
 * [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
 
@@ -53,6 +53,8 @@ npm run test
 
 ## Testing
 
+## Project Status
+Status: In progress
 
 ## Room for Improvement
 Room for improvement:
