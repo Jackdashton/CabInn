@@ -51,14 +51,7 @@ npm run dev
 Run tests:
 npm run test
 
-## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
-
-`write-your-code-here`
-
-## Project Status
-Project is: In progress.
+## Testing
 
 
 ## Room for Improvement
