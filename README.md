@@ -52,9 +52,10 @@ Run tests:
 npm run test
 
 ## Testing
+The majority of the tests are unit tests, with the exception of the system test. The system test makes use of the "Launchy" gem and Capybara. My testing strategy focused on ensuring that each models's behavior was tested.
 
 ## Project Status
-Status: In progress
+Status: Complete
 
 ## Room for Improvement
 Room for improvement:
