@@ -36,10 +36,20 @@ List the ready features here:
 ![Reviews](https://user-images.githubusercontent.com/122602433/235965168-ae045dc1-16ff-4c19-b336-1558e36b0f6e.JPG)
 
 ## Setup
-1. Clone the repository - git clone git@github.com:jackdashton/CabInn.git
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
+To get started with the project, follow these installation instructions:
 
-Proceed to describe how to install / setup one's local environment / get started with the project.
+Clone the repository:
+git clone https://github.com/Jackdashton/CabInn.git
+
+Install the dependencies:
+cd CabInn
+npm install
+
+Run the project locally:
+npm run dev
+
+Run tests:
+npm run test
 
 ## Usage
 How does one go about using it?
