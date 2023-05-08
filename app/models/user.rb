@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :flats, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  validates :avatar, presence: true
 
   has_one_attached :avatar
   # Include default devise modules. Others available are:
@@ -13,7 +14,6 @@ class User < ApplicationRecord
     if avatar.attached?
       avatar.variant(resize: "150x150!").processed
     else
-      link_to "http://www.google.com/"
     end
   end
 end
