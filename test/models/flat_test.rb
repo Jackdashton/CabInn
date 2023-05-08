@@ -27,5 +27,4 @@ class FlatTest < ActiveSupport::TestCase
     )
     assert_not flat.save
   end
-
 end
