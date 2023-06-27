@@ -24,7 +24,6 @@ The project was undertaken to improve and add to the fundamentals of Ruby on Rai
 * HTML
 
 ## Features
-List the ready features here:
 - Mapbox Geolocation
 - Leave reviews of properties
 - Book properties
